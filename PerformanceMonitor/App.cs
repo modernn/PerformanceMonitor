@@ -27,7 +27,7 @@ public class App
     }
     public static string GetLogEntry()
     {
-        return DateTime.Now.ToString() + " RAM Used: " + GetRamUsage() + " CPU Used: " + GetCpuUsage();
+        return DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + " RAM Used: " + GetRamUsage() + " CPU Used: " + GetCpuUsage();
     }
     public static string GetCpuUsage()
     {
@@ -38,6 +38,6 @@ public class App
         float CurrentlyAvailiableRAM = ramCounter.NextValue();
         float CurrentlyUsedRAM = TotalRAM - CurrentlyAvailiableRAM;
         var CurrentUsedRamPercent = Math.Round(Math.Round(CurrentlyUsedRAM/TotalRAM, 3)*100,2);
-        return  "("+CurrentlyUsedRAM+"/"+TotalRAM+") "+CurrentUsedRamPercent+"%";
+        return  "("+CurrentlyUsedRAM+"MB/"+TotalRAM+"MB) "+CurrentUsedRamPercent+"%";
     }
 }
